@@ -17,9 +17,7 @@
         $books = json_decode($booksJson, true);
     ?>
 
-    <?php $rows_count = count($books); ?>
-
-    <?php if(isset($_POST['id'])): ?>       
+        <?php if(isset($_POST['id'])): ?>       
             <?php
                 $d = $_POST['id']; 
                 $c = 0;
@@ -30,13 +28,14 @@
                                 $c = 1;
                                 $i = array_search($book, $books);
                                 break;
-                                $c++;
+                                //$c++;
                             }
                         }
                     }
                 }
                 if($c===1){
-                    unset($books[$i]);
+                    //unset($books[$i]);
+                    array_splice($books, $i, 1);
                 }
                 else{
                     echo "Result:   " . "Please enter book id correctly";

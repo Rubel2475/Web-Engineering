@@ -45,7 +45,10 @@
             
         ?>
     <?php else: ?>
-        <?php echo "Please pass searching book id by URL"; ?>
+        <?php echo "Please pass searching book id by URL"; 
+            echo "<br>";  
+            echo 'Example: ' . 'http://............../search.php/?id=2';
+        ?>
 
     <?php endif ?>
 
@@ -53,7 +56,7 @@
     <br>
     <br>
 
-    <a href="index.php"> Back to home page </a>
+    <!-- <a href="index.php"> Back to home page </a> -->
 
 </body>
 

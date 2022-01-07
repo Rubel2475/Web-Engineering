@@ -20,15 +20,17 @@
     <?php $rows_count = count($books); ?>
 
     <?php  if(isset($_POST['id']) || isset($_POST['title']) || isset($_POST['author']) || isset($_POST['available'])|| isset($_POST['pages'])|| isset($_POST['isbn'])): ?>
-            <?php $books[$rows_count]['id'] = $_POST['id']; ?> 
-            <?php $books[$rows_count]['title'] = $_POST['title']; ?> 
-            <?php $books[$rows_count]['author'] = $_POST['author']; ?>    
-            <?php $books[$rows_count]['available'] = $_POST['available']; ?>    
-            <?php $books[$rows_count]['pages'] = $_POST['pages']; ?>    
-            <?php $books[$rows_count]['isbn'] = $_POST['isbn']; ?>    
+            <?php $new_books[0]['id'] = $_POST['id']; ?> 
+            <?php $new_books[0]['title'] = $_POST['title']; ?> 
+            <?php $new_books[0]['author'] = $_POST['author']; ?>    
+            <?php $new_books[0]['available'] = $_POST['available']; ?>    
+            <?php $new_books[0]['pages'] = $_POST['pages']; ?>    
+            <?php $new_books[0]['isbn'] = $_POST['isbn']; ?>    
     <?php else: ?>
             <p> You are not adding book? </P>
     <?php endif; ?>
+
+    <?php $books = array_merge($books, $new_books); ?>
 
     <?php $newJsonString = json_encode($books);
     file_put_contents('books.json', $newJsonString); 
